@@ -164,7 +164,7 @@ def LidarThread():
 def ImuThread():
     global mj_data, mj_model
 
-    imu_dt = 0.005  # target ~200 Hz
+    imu_dt = 0.1  # target is 10 Hz for ROS IMU, odometry, and TF in sim, real robot is 200 Hz
     last_sim_time = -1.0
 
     while viewer.is_running():

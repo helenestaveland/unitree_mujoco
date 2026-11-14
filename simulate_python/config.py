@@ -10,5 +10,5 @@ JOYSTICK_DEVICE = 0 # Joystick number
 PRINT_SCENE_INFORMATION = True # Print link, joint and sensors information of robot
 ENABLE_ELASTIC_BAND = True # Virtual spring band, used for lifting h1
 
-SIMULATE_DT = 0.002  # Need to be larger than the runtime of viewer.sync()
-VIEWER_DT = 0.1  # 50 fps for viewer
+SIMULATE_DT = 0.002 #0.002  # Need to be larger than the runtime of viewer.sync()
+VIEWER_DT = 0.1 #0.1  # 50 fps for viewer
