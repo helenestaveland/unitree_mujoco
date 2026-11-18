@@ -22,12 +22,6 @@ import rclpy
 
 
 locker = threading.Lock()
-_physics_stats = {
-    "steps": 0,
-    "last_step_wall": None,
-    "max_period": 0.0,
-    "max_lock_wait": 0.0,
-}
 
 mj_model = mujoco.MjModel.from_xml_path(config.ROBOT_SCENE)
 
@@ -104,16 +98,6 @@ def SimulationThread():
         step_start = time.perf_counter()
 
         locker.acquire()
-        acquired = time.perf_counter()
-        previous = _physics_stats["last_step_wall"]
-        if previous is not None:
-            _physics_stats["max_period"] = max(
-                _physics_stats["max_period"], acquired - previous
-            )
-        _physics_stats["last_step_wall"] = acquired
-        _physics_stats["max_lock_wait"] = max(
-            _physics_stats["max_lock_wait"], acquired - step_start
-        )
 
         if config.ENABLE_ELASTIC_BAND:
             if elastic_band.enable:
@@ -123,7 +107,6 @@ def SimulationThread():
             else:
                 mj_data.xfrc_applied[band_attached_link, :3] = 0.0
         mujoco.mj_step(mj_model, mj_data)
-        _physics_stats["steps"] += 1
 
         locker.release()
 
@@ -215,31 +198,6 @@ def PhysicsViewerThread():
                 viewer.sync()
         time.sleep(config.VIEWER_DT)
 
-def TimingThread():
-    previous = None
-    while viewer.is_running():
-        time.sleep(1.0)
-        with locker:
-            wall = time.perf_counter()
-            sim = float(mj_data.time)
-            steps = _physics_stats["steps"]
-            worst = _physics_stats["max_period"]
-            wait = _physics_stats["max_lock_wait"]
-            _physics_stats["max_period"] = 0.0
-            _physics_stats["max_lock_wait"] = 0.0
-
-        if previous is not None:
-            old_wall, old_sim, old_steps = previous
-            elapsed = wall - old_wall
-            print(
-                f"[SIM TIMING] RTF={(sim-old_sim)/elapsed:.2f} "
-                f"steps/s={(steps-old_steps)/elapsed:.0f} "
-                f"worst_interval_ms={worst*1000:.1f} "
-                f"lock_wait_ms={wait*1000:.1f}",
-                flush=True,
-            )
-        previous = (wall, sim, steps)
-
 if __name__ == "__main__":
     viewer_thread = Thread(target=PhysicsViewerThread)
     sim_thread = Thread(target=SimulationThread)
@@ -250,4 +208,3 @@ if __name__ == "__main__":
     sim_thread.start()
     lidar_thread.start()  # Warp GPU JT128
     imu_thread.start()
-    Thread(target=TimingThread, daemon=True).start()
