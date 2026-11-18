@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mujoco model="g1_maze_small">
+  <!-- Small custom ring maze; 4 m cells and 3 m walls. -->
+  <include file="g1_29dof.xml"/>
+  <statistic center="4 -4 1.5" extent="15"/>
+  <worldbody>
+    <light name="maze_light" pos="4 -4 12" dir="0 0 -1" directional="true"/>
+    <geom name="ground" type="plane" size="0 0 0.05" rgba="0.6 0.6 0.6 1" friction="1 0.005 0.0001"/>
+    <geom name="maze_wall_0_0" type="box" pos="-4.0 4.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_0_1" type="box" pos="0.0 4.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_0_2" type="box" pos="4.0 4.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_0_3" type="box" pos="8.0 4.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_0_4" type="box" pos="12.0 4.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_1_0" type="box" pos="-4.0 0.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_1_4" type="box" pos="12.0 0.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_2_0" type="box" pos="-4.0 -4.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_2_2" type="box" pos="4.0 -4.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_2_4" type="box" pos="12.0 -4.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_3_0" type="box" pos="-4.0 -8.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_3_4" type="box" pos="12.0 -8.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_4_0" type="box" pos="-4.0 -12.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_4_1" type="box" pos="0.0 -12.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_4_2" type="box" pos="4.0 -12.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_4_3" type="box" pos="8.0 -12.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+    <geom name="maze_wall_4_4" type="box" pos="12.0 -12.0 1.5" size="2.0 2.0 1.5" rgba="0.80 0.76 0.66 1"/>
+  </worldbody>
+</mujoco>
