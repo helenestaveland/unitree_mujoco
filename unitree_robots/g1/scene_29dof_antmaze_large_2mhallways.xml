@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="g1_antmaze_large_2mhallways">
+  <!--Layout adapted from Farama-Foundation/D4RL, d4rl/locomotion/maze_env.py: HARDEST_MAZE_TEST. D4RL is Apache-2.0 licensed. Adaptations: G1 robot, 3 m walls, starting cell at world origin.-->
+  <include file="g1_29dof.xml" />
+  <statistic center="18 -12 1.5" extent="30" />
+  <worldbody>
+    <light name="maze_light" pos="0 0 12" dir="0 0 -1" directional="true" />
+    <geom name="ground" type="plane" size="0 0 0.05" rgba="0.6 0.6 0.6 1" friction="1 0.005 0.0001" />
+    <geom name="maze_wall_0_0" type="box" pos="-4.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_0_1" type="box" pos="0.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_0_2" type="box" pos="4.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_0_3" type="box" pos="8.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_0_4" type="box" pos="12.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_0_5" type="box" pos="16.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_0_6" type="box" pos="20.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_0_7" type="box" pos="24.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_0_8" type="box" pos="28.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_0_9" type="box" pos="32.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_0_10" type="box" pos="36.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_0_11" type="box" pos="40.0 4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_1_0" type="box" pos="-4.0 0.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_1_5" type="box" pos="16.0 0.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_1_11" type="box" pos="40.0 0.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_2_0" type="box" pos="-4.0 -4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_2_2" type="box" pos="4.0 -4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_2_3" type="box" pos="8.0 -4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_2_5" type="box" pos="16.0 -4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_2_7" type="box" pos="24.0 -4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_2_9" type="box" pos="32.0 -4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_2_11" type="box" pos="40.0 -4.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_3_0" type="box" pos="-4.0 -8.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_3_7" type="box" pos="24.0 -8.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_3_11" type="box" pos="40.0 -8.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_4_0" type="box" pos="-4.0 -12.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_4_2" type="box" pos="4.0 -12.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_4_3" type="box" pos="8.0 -12.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_4_4" type="box" pos="12.0 -12.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_4_5" type="box" pos="16.0 -12.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_4_7" type="box" pos="24.0 -12.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_4_8" type="box" pos="28.0 -12.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_4_9" type="box" pos="32.0 -12.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_4_11" type="box" pos="40.0 -12.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_5_0" type="box" pos="-4.0 -16.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_5_3" type="box" pos="8.0 -16.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_5_5" type="box" pos="16.0 -16.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_5_11" type="box" pos="40.0 -16.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_6_0" type="box" pos="-4.0 -20.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_6_1" type="box" pos="0.0 -20.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_6_3" type="box" pos="8.0 -20.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_6_5" type="box" pos="16.0 -20.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_6_7" type="box" pos="24.0 -20.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_6_9" type="box" pos="32.0 -20.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_6_10" type="box" pos="36.0 -20.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_6_11" type="box" pos="40.0 -20.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_7_0" type="box" pos="-4.0 -24.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_7_3" type="box" pos="8.0 -24.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_7_7" type="box" pos="24.0 -24.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_7_11" type="box" pos="40.0 -24.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_0" type="box" pos="-4.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_1" type="box" pos="0.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_2" type="box" pos="4.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_3" type="box" pos="8.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_4" type="box" pos="12.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_5" type="box" pos="16.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_6" type="box" pos="20.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_7" type="box" pos="24.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_8" type="box" pos="28.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_9" type="box" pos="32.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_10" type="box" pos="36.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+    <geom name="maze_wall_8_11" type="box" pos="40.0 -28.0 1.5" size="3.0 3.0 1.5" rgba="0.80 0.76 0.66 1" />
+  </worldbody>
+</mujoco>

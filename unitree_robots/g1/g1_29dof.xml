@@ -222,7 +222,12 @@
             <geom pos="0.0039635 0 -0.054" type="mesh" contype="0" conaffinity="0" group="1"
               density="0" rgba="0.2 0.2 0.2 1" mesh="head_link" />
             <geom pos="0.0039635 0 -0.054" type="mesh" rgba="0.2 0.2 0.2 1" mesh="head_link" />
-            <site name="lidar" pos="0 0 0.405" quat="0 0 1 0" rgba="0 1 0 1" size="0.005" group="5"/>
+            <site name="lidar" pos="0.130240 0.000013 0.028813"
+                  quat="0.598472 -0.376605 0.598472 -0.376605"
+                  rgba="0 1 0 1" size="0.005" group="5"/>
+            <site name="vn100_imu" pos="-0.064202 -0.002100 0.108896"
+                  quat="0.707105 -0.001370 0.707105 -0.001370"
+                  rgba="0 1 0 1" size="0.005" group="5"/>
             <geom pos="0.0039635 0 -0.054" quat="1 0 0 0" type="mesh" contype="0" conaffinity="0"
               group="1" density="0" rgba="0.7 0.7 0.7 1" mesh="waist_support_link" />
             <geom pos="0.0039635 0 -0.054" quat="1 0 0 0" type="mesh" rgba="0.7 0.7 0.7 1"
@@ -522,6 +527,9 @@
     <framequat name="secondary_imu_quat" objtype="site" objname="secondary_imu" />
     <gyro name="secondary_imu_gyro" site="secondary_imu" noise="5e-4" cutoff="34.9"/>
     <accelerometer name="secondary_imu_acc" site="secondary_imu" noise="1e-2" cutoff="157"/>
+    <framequat name="vn100_quat" objtype="site" objname="vn100_imu" />
+    <gyro name="vn100_gyro" site="vn100_imu" />
+    <accelerometer name="vn100_acc" site="vn100_imu" />
   </sensor>
 
 </mujoco>
